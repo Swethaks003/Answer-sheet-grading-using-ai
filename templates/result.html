@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grading Results</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f6d365, #fda085);
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transform: scale(1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .container:hover {
+            transform: scale(1.05);
+        }
+
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin: 15px 0;
+            font-size: 18px;
+        }
+
+        ul li strong {
+            color: #2980b9;
+            font-weight: bold;
+        }
+
+        .score, .feedback {
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        .score {
+            background: #eaf7f8;
+            border-left: 10px solid #1abc9c;
+        }
+
+        .feedback {
+            background: #f9f9f9;
+            border-left: 10px solid #f39c12;
+        }
+
+        .score li, .feedback li {
+            font-size: 16px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #888;
+            border-top: 2px solid #eee;
+            padding-top: 10px;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+        /* Button style for any action in the future */
+        button {
+            background-color: #2980b9;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 30px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #3498db;
+        }
+
+        /* Download button style */
+        .download-btn {
+            background-color: #27ae60;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 30px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            display: block;
+            width: 100%;
+        }
+
+        .download-btn:hover {
+            background-color: #2ecc71;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Grading Results</h2>
+        <p><strong>Question:</strong> {{ question }}</p>
+        <p><strong>Correct Answer:</strong> {{ correct_answer }}</p>
+        <p><strong>Handwritten Answer:</strong> {{ handwritten_answer }}</p>
+
+        <h3>Scores</h3>
+        <ul class="score">
+            <li><strong>Clarity Score:</strong> {{ clarity_score }}/10</li>
+            <li><strong>Neatness Score:</strong> {{ neatness_score }}/10</li>
+            <li><strong>Accuracy Score:</strong> {{ accuracy_score }}/10</li>
+            <li><strong>Final Grade:</strong> {{ final_grade }}/10</li>
+        </ul>
+
+        <h3>Feedback</h3>
+        <ul class="feedback">
+            <li><strong>Clarity:</strong> {{ clarity_feedback }}</li>
+            <li><strong>Neatness:</strong> {{ neatness_feedback }}</li>
+            <li><strong>Accuracy:</strong> {{ accuracy_feedback }}</li>
+            <li><strong>Final Grade:</strong> {{ final_grade_feedback }}</li>
+        </ul>
+
+        <!-- Download Button -->
+        <a href="/path/to/grading_results.pdf" download>
+            <button class="download-btn">Download Grading Results</button>
+        </a>
+
+        <div class="footer">
+            <p>&copy; 2025 Answer Grading System</p>
+        </div>
+    </div>
+</body>
+</html>

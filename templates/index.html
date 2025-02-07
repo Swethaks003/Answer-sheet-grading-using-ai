@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Answer Grading</title>
+    <style>
+        /* General styles for the body */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, rgba(0, 255, 255, 0.7), rgba(255, 182, 193, 0.7), rgba(255, 255, 224, 0.7));
+            background-size: 400% 400%;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Container with oval shape */
+        .container {
+            display: flex;
+            flex-direction: column; /* Stack the elements vertically */
+            align-items: center; /* Center horizontally */
+            justify-content: center; /* Center vertically */
+            background: #f0f8ff; /* Light blue color */
+            padding: 30px 50px;
+            border-radius: 50% / 30%; /* Oval shape */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            max-width: 700px;
+            width: 100%;
+            
+        }
+
+        .container:hover {
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+            transform: scale(1.05);
+        }
+
+        /* Heading styles */
+        h1 {
+            color: #3b3b3b;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        /* Label styles */
+        label {
+            font-weight: bold;
+            margin-top: 15px;
+            display: block;
+            color: #3b3b3b;
+        }
+
+        /* Textarea styles */
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            border-radius: 10px;
+            border: 2px solid #ced4da;
+            resize: none;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        textarea:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        /* File input styles */
+        input[type="file"] {
+            margin-top: 5px;
+            padding: 12px;
+            border-radius: 10px;
+            border: 2px solid #ced4da;
+            width: 100%;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="file"]:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        /* Smaller button styles */
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 8px 16px;  /* Reduced padding */
+            border: none;
+            text-align: center;
+            border-radius: 10px;
+            cursor: pointer;
+            width: auto;  /* Make the width auto to fit the content */
+            margin-top: 20px;
+            font-size: 14px;  /* Reduced font size */
+           
+        }
+
+        button:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+
+        /* Animation for shining effect */
+        @keyframes shining {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Handwritten Answer Grading</h1>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <label for="question">Enter the Question:</label>
+            <textarea id="question" name="question" rows="4" placeholder="Type your question here..." required></textarea>
+
+            <label for="file">Upload Handwritten Answer Image:</label>
+            <input type="file" id="file" name="file" accept="image/*" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
